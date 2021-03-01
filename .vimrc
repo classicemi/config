@@ -87,12 +87,14 @@ Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'rust-lang/rust.vim'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
 colorscheme space-vim-dark
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 
 " ==============
 " coc extensions
