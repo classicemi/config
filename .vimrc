@@ -22,6 +22,7 @@ set formatoptions+=B
 " =========
 " ui config
 " =========
+set termguicolors
 set ruler
 set number
 set relativenumber
@@ -30,6 +31,7 @@ set showcmd
 set showmode
 set showmatch
 set matchtime=2
+set guicursor=a:block
 
 " =============
 " search config
@@ -54,7 +56,7 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 
-
+" ===============
 " filetype config
 " ===============
 filetype on
@@ -80,7 +82,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'liuchengxu/space-vim-dark'
 Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
@@ -89,9 +90,18 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'rust-lang/rust.vim'
 Plug 'posva/vim-vue'
 
+" ============
+" colorschemes
+" ============
+Plug 'liuchengxu/space-vim-dark'
+Plug 'jacoborus/tender.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
-colorscheme space-vim-dark
+set background=dark
+colorscheme gruvbox
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
