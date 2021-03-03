@@ -18,6 +18,7 @@ set encoding=utf-8
 set termencoding=utf-8
 set formatoptions+=m
 set formatoptions+=B
+set fileencodings=utf-8,gb18030
 
 " =========
 " ui config
@@ -78,8 +79,10 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'    " JavaScript support
@@ -89,6 +92,21 @@ Plug 'jparise/vim-graphql'        " GraphQL syntax
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'rust-lang/rust.vim'
 Plug 'posva/vim-vue'
+Plug 'jxnblk/vim-mdx-js'
+Plug 'airblade/vim-gitgutter'
+Plug 'plasticboy/vim-markdown'
+Plug 'preservim/tagbar'
+let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8_2/bin/ctags'
+Plug 'tomtom/tcomment_vim'
+
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
 
 " ============
 " colorschemes
@@ -97,19 +115,27 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
-set background=dark
-colorscheme gruvbox
+colorscheme tender
 
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :NERDTreeFind<CR>
+nnoremap <silent> <leader>e :NERDTreeToggle<cr>
+nnoremap <silent> <leader>f :NERDTreeToggle<cr>
+
+let g:NERDTreeWinSize=40
 
 " ==============
 " coc extensions
 " ==============
-let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-vetur',
+      \'coc-json',
+      \'coc-css',
+      \'coc-rome'
+      \]
 
 " ==========
 " coc config
