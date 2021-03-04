@@ -75,6 +75,11 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
+" delete without cut
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
+
 let g:plug_window = 'noautocmd vertical topleft new'
 
 call plug#begin('~/.vim/bundle')
@@ -119,10 +124,10 @@ Plug 'rakr/vim-one'
 
 call plug#end()
 
-colorscheme tender
+colorscheme palenight
 
 nnoremap <silent> <leader>e :NERDTreeToggle<cr>
-nnoremap <silent> <leader>f :NERDTreeToggle<cr>
+nnoremap <silent> <leader>f :NERDTreeFind<cr>
 
 let g:NERDTreeWinSize=40
 
