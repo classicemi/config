@@ -80,6 +80,8 @@ nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
 
+nnoremap <leader>w <C-w><C-w>
+
 let g:plug_window = 'noautocmd vertical topleft new'
 
 call plug#begin('~/.vim/bundle')
@@ -103,6 +105,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'preservim/tagbar'
 let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8_2/bin/ctags'
 Plug 'tomtom/tcomment_vim'
+Plug 'Yggdroot/indentLine'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
 
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -121,15 +126,37 @@ Plug 'jacoborus/tender.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
-colorscheme palenight
+" let base16colorspace=256
+" colorscheme base16-default-dark
+
+set background=dark
+colorscheme PaperColor
 
 nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 nnoremap <silent> <leader>f :NERDTreeFind<cr>
 
+" open nerdtree by default
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+au VimEnter * call StartUp()
+
+" open nerdtree every time when opening new tab
+autocmd BufWinEnter * NERDTreeMirror
+
 let g:NERDTreeWinSize=40
+
+" =====================
+" vim-javascript plugin
+" =====================
+let g:javascript_plugin_jsdoc = 1
 
 " ==============
 " coc extensions
